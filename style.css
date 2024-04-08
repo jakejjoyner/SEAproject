@@ -4,6 +4,7 @@ body {
     padding: 0;
 }
 
+
 .main-header {
     background-color: rgba(0, 0, 0, .3);
     padding-bottom: 10px;
@@ -12,7 +13,7 @@ body {
 .title {
     text-align: center;
     margin: 0;
-    font-size: 8em;
+    font-size: 4em;
     font-family: "Helvetica";
     font-weight: normal;
     color: white;
@@ -20,12 +21,16 @@ body {
 
 #card-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     margin: 20px;
 }
 
 .card {
-    width: 300px;
+    width: 90vw;
+    max-width: 1700px;
+    align-items: center;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -41,6 +46,10 @@ body {
 .card-content h2 {
     margin-top: 0;
     font-size: 20px;
+}
+
+.card-content ul {
+    margin: 0;
 }
 
 .card img {
