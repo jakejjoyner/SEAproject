@@ -1,6 +1,7 @@
 /**
-    This is my first time coding in vanilla JS
+    This is my first time coding in vanilla JS. I used react for a previous project but that's it.
  */
+
 
 const entries = [
     {
@@ -14,7 +15,7 @@ const entries = [
         information: "The Boeing B-17 Flying Fortress is an American four-engined heavy bomber aircraft developed in the 1930s for the United States Army Air Corps (USAAC). A fast and high-flying bomber of its era, the B-17 was used primarily in the European Theater of Operations and dropped more bombs than any other aircraft during World War II. It is the third-most produced bomber of all time, behind the American four-engined Consolidated B-24 Liberator and the German multirole, twin-engined Junkers Ju 88. It was also employed as a transport, antisubmarine aircraft, drone controller, and search-and-rescue aircraft."
     },
     {
-        _title: "Vought F4U Corsair URL",
+        _title: "Vought F4U Corsair",
         URL: "https://upload.wikimedia.org/wikipedia/commons/6/66/Vought_F4U_Corsair_%28USMC%29.jpg",
         information: "The Vought F4U Corsair is an American fighter aircraft that saw service primarily in World War II and the Korean War. Designed and initially manufactured by Chance Vought, the Corsair was soon in great demand; additional production contracts were given to Goodyear, whose Corsairs were designated FG, and Brewster, designated F3A."
     },
@@ -80,6 +81,32 @@ const entries = [
     }
 ]
 
+//filters
+const fighters = [
+    "P-51 Mustang",
+    "Corsair",
+    "Hellcat",
+    "Spitfire",
+    "Hurricane",
+    "A6M",
+    "Messerschmitt",
+    "Mosquito"
+]
+
+const bombers = [
+    "Flying Fortress",
+    "Dauntless",
+    "Junkers",
+    "Helldiver",
+    "Havoc"
+]
+
+const transport = [
+    "C-47",
+    "PBY Catalina",
+    "Flying Fortress"
+]
+
 // This function adds cards the page to display the data in the array
 function showCards() {
     const cardContainer = document.getElementById("card-container");
@@ -136,12 +163,36 @@ searchInput.addEventListener("input", (e) => {
 }
 )
 
-
+//filter for fighters
 const fighterFilter = document.getElementById("filter_fighter");
-fighterFilter.addEventListener("click", (e) => {
-    showCards;
-    entries.pop();
+fighterFilter.addEventListener("click", () => {
+    for(i = 0; i < fighters.length; i++){
+        setList(entries.filter(entry => {
+            return entry._title.includes(fighters[i])
+        }))
+    }
 })
+
+//filter for bombers
+const bomberFilter = document.getElementById("filter_bomber");
+bomberFilter.addEventListener("click", () => {
+    for(i = 0; i < bombers.length; i++){
+        setList(entries.filter(entry => {
+            return entry._title.includes(bombers[i])
+        }))
+    }
+})
+
+// filter for search and rescue/transport
+const transportFilter = document.getElementById("filter_transport");
+transportFilter.addEventListener("click", () => {
+    for(i = 0; i < transport.length; i++){
+        setList(entries.filter(entry => {
+            return entry._title.includes(transport[i])
+        }))
+    }
+})
+
 const clearButton = document.getElementById("clear");
 
 clearButton.addEventListener("click", () => {
@@ -167,6 +218,8 @@ function setList(results){
         const text = document.createTextNode(entry._title);
         //append the text to an anchor element
         a.appendChild(text);
+        //open in a new tab
+        a.target = "_blank";
         //append the anchor element to the result item
         resultItem.appendChild(a);
         //set the anchors href to the entry's URL
@@ -175,11 +228,7 @@ function setList(results){
         list.appendChild(resultItem);
     }
 }
-
-function filters(){
-    var input, filter, ul, a, i, txtValue;
-    input = document.getElementById('')
-}
+window.open(entry.URL, '_blank').focus();
 
 
 function quoteAlert() {
