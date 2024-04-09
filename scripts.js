@@ -195,7 +195,8 @@ transportFilter.addEventListener("click", () => {
 
 const clearButton = document.getElementById("clear");
 
-clearButton.addEventListener("click", () => {
+clearButton.addEventListener("click", (e) => {
+    e.preventDefault(); //don't jump below the clear button, like with the other buttons
     clearList();
 }
 )
