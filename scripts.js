@@ -165,9 +165,10 @@ searchInput.addEventListener("input", (e) => {
 
 //filter for fighters
 const fighterFilter = document.getElementById("filter_fighter");
-fighterFilter.addEventListener("click", () => {
+fighterFilter.addEventListener("click", (e) => {
     for(i = 0; i < fighters.length; i++){
         setList(entries.filter(entry => {
+            e.preventDefault(); //prevent page from refreshing immediately
             return entry._title.includes(fighters[i])
         }))
     }
@@ -175,9 +176,10 @@ fighterFilter.addEventListener("click", () => {
 
 //filter for bombers
 const bomberFilter = document.getElementById("filter_bomber");
-bomberFilter.addEventListener("click", () => {
+bomberFilter.addEventListener("click", (e) => {
     for(i = 0; i < bombers.length; i++){
         setList(entries.filter(entry => {
+            e.preventDefault(); //prevent page from refreshing immediately
             return entry._title.includes(bombers[i])
         }))
     }
@@ -185,9 +187,10 @@ bomberFilter.addEventListener("click", () => {
 
 // filter for search and rescue/transport
 const transportFilter = document.getElementById("filter_transport");
-transportFilter.addEventListener("click", () => {
+transportFilter.addEventListener("click", (e) => {
     for(i = 0; i < transport.length; i++){
         setList(entries.filter(entry => {
+            e.preventDefault(); //prevent page from refreshing immediately
             return entry._title.includes(transport[i])
         }))
     }
@@ -229,7 +232,6 @@ function setList(results){
         list.appendChild(resultItem);
     }
 }
-window.open(entry.URL, '_blank').focus();
 
 
 function quoteAlert() {
